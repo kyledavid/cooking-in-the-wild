@@ -9,7 +9,8 @@ class Skillet extends React.Component {
     return skillet.map((skillItem)=>{
       return (
         <li key={skillItem}>
-          <a href="#">
+          <a href="#" onClick={()=>{this.props.removeFromSkillet(skillItem)}}>
+            {console.log(`skillItem: ${skillItem}`)}
             {skillItem}
           </a>
         </li>

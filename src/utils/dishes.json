@@ -1,4 +1,53 @@
 [
-  ["Shit Ass Food", "What were you thinking man."],
-  ["Honey Leg", "This drumstick has been marinated with a sweet glaze of honey."]
+  [
+    {
+      "name": "A pile of garbage",
+      "description": "What were you thinking man."
+    }
+  ],
+  [
+    {
+      "name": "Grilled Leg",
+      "description": "A drumstick cooked over a flame.",
+      "ingredients": ["Raw Birdleg"]
+    },
+    {
+      "name": "Grilled Fish",
+      "description": "A robust fish cooked over a flame (boosts stamina).",
+      "ingredients": ["Endurance Fish"]
+    },
+    {
+      "name": "Grilled Veggies",
+      "description": "Some healthy veggies cooked over a flame (boosts hearts).",
+      "ingredients": ["Healthy Radish"]
+    },
+    {
+      "name": "Grilled Veggies",
+      "description": "Some healthy veggies cooked over a flame (boosts run speed).",
+      "ingredients": ["Fast Carrot"]
+    },
+    {
+      "name": "Grilled Veggies",
+      "description": "Some healthy veggies cooked over a flame(boosts armor).",
+      "ingredients": ["Defensive Cabbage"]
+    }
+
+  ],
+  [
+    {
+      "name": "Honey Leg",
+      "description": "This drumstick has been marinated with a sweet glaze of honey.",
+      "ingredients": ["Raw Birdleg", "Bee's Goo"]
+    },
+    {
+      "name": "Salt Leg",
+      "description": "A drumstick seasoned with salt.",
+      "ingredients": ["Raw Birdleg", "Salt"]
+    },
+    {
+      "name": "Salt Fish",
+      "description": "Tasty salty fish (boosts stamina).",
+      "ingredients": ["Endurance Fish", "Salt"]
+    }
+  ]
 ]

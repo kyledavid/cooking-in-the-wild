@@ -1,11 +1,17 @@
 const dishes = require('./dishes.json');
+const _ = require('lodash');
 
-const lookupRecipe = function(ingredients) {
-  if (ingredients.includes(`Raw Birdleg`) && ingredients.includes(`Bee's Goo`)) {
-    return dishes[1];
-  } else {
-    return dishes[0]
-  }
+const lookupRecipe = function(cookedIngs) {
+  const row = dishes[cookedIngs.length];
+  var dishMade;
+
+  row ? row.forEach((dish)=>{
+    if(!_.difference(dish.ingredients,cookedIngs).length){
+      dishMade = dish;
+    }
+  }) : null;
+
+  return dishMade ? dishMade : dishes[0][0];
 }
 
 module.exports = lookupRecipe;

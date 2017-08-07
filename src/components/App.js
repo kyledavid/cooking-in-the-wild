@@ -19,7 +19,9 @@ class App extends React.Component {
 
     this.addToSkillet = this.addToSkillet.bind(this);
     this.startCooking = this.startCooking.bind(this);
+    this.removeFromSkillet = this.removeFromSkillet.bind(this);
   }
+
   addToSkillet(ingredient) {
     let ingredients = this.state.ingredients.slice();
     let skillet = this.state.skillet.slice();
@@ -32,13 +34,32 @@ class App extends React.Component {
     this.setState({
       ingredients,
       skillet,
+      cooked: false,
     });
   }
+
+  removeFromSkillet(ingredient) {
+    let ingredients = this.state.ingredients.slice();
+    let skillet = this.state.skillet.slice();
+
+    ingredients.push(ingredient);
+    skillet = skillet.filter((currentIngredient)=>{
+      return currentIngredient != ingredient;
+    });
+
+    this.setState({
+      ingredients,
+      skillet,
+      cooked: false,
+    });
+  }
+
   startCooking() {
     this.setState({
       cooked: true,
     });
   }
+
   getCooked() {
     const ingredients = this.state.skillet;
     const dishMade = recipeLookup(ingredients);
@@ -50,12 +71,10 @@ class App extends React.Component {
     let dishCooked  = '';
     this.state.cooked ? dishCooked = this.getCooked() : null;
 
-    console.log(dishCooked)
-
     return (
       <section id="app">
         <Ingredients ingredientList={this.state.ingredients} addToSkillet={this.addToSkillet} />
-        <Skillet skilletList={this.state.skillet} />
+        <Skillet skilletList={this.state.skillet} removeFromSkillet={this.removeFromSkillet} />
         <Cook cook={this.startCooking} />
         <Dish dishCooked={dishCooked} />
       </section>
