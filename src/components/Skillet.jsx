@@ -1,4 +1,5 @@
 const React = require('react');
+const style = require('../style.css');
 
 class Skillet extends React.Component {
   skilletLinks() {
@@ -20,7 +21,7 @@ class Skillet extends React.Component {
   render() {
     const skillItems = this.skilletLinks();
     return (
-      <section id="skillet">
+      <section id="skillet" className={style.component}>
         <ul>
           {skillItems}
         </ul>

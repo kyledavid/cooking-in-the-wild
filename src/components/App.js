@@ -72,7 +72,7 @@ class App extends React.Component {
     this.state.cooked ? dishCooked = this.getCooked() : null;
 
     return (
-      <section id="app">
+      <section id='app' className='comp-row'>
         <Ingredients ingredientList={this.state.ingredients} addToSkillet={this.addToSkillet} />
         <Skillet skilletList={this.state.skillet} removeFromSkillet={this.removeFromSkillet} />
         <Cook cook={this.startCooking} />

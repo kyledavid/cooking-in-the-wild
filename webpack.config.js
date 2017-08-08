@@ -5,9 +5,9 @@ const webpack = require('webpack');
 const config = {
   entry: './src/index.js',
   output: {
-      path: path.resolve(__dirname, 'build'),
-      filename: 'bundle.js',
-      publicPath: '/',
+    path: path.resolve(__dirname, 'build'),
+    filename: 'bundle.js',
+    publicPath: '/',
   },
   module: {
     loaders: [
@@ -18,12 +18,24 @@ const config = {
         query: {
           presets: ['react']
         }
+      },
+      {
+        test: /\.css$/,
+        loader: 'style-loader'
+      },
+      {
+        test: /\.css$/,
+        loader: 'css-loader',
+        query: {
+          modules: true,
+          localIdentName: '[name]__[local]___[hash:base64:5]'
+        }
       }
-    ]
-  },
-  plugins: [new HtmlWebpackPlugin({
-    template: 'src/index.html'
-  })]
-}
+      ]
+    },
+    plugins: [new HtmlWebpackPlugin({
+      template: 'src/index.html'
+    })]
+  }
 
-module.exports = config;
+  module.exports = config;
