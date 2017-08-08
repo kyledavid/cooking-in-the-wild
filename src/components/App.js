@@ -6,6 +6,7 @@ const Cook = require('./Cook.jsx');
 const Dish = require('./Dish.jsx');
 const ingredientList = require('../utils/ingredients.json');
 const recipeLookup = require('../utils/recipeLookup.js');
+const style = require('../style.css');
 
 class App extends React.Component {
   constructor(props) {
@@ -72,12 +73,15 @@ class App extends React.Component {
     this.state.cooked ? dishCooked = this.getCooked() : null;
 
     return (
-      <section id='app' className='comp-row'>
-        <Ingredients ingredientList={this.state.ingredients} addToSkillet={this.addToSkillet} />
-        <Skillet skilletList={this.state.skillet} removeFromSkillet={this.removeFromSkillet} />
-        <Cook cook={this.startCooking} />
-        <Dish dishCooked={dishCooked} />
-      </section>
+      <div>
+        <h1 className={style['wild-header']}>Cooking in the Wild</h1>
+        <section id='app' className={style['comp-row']}>
+          <Ingredients ingredientList={this.state.ingredients} addToSkillet={this.addToSkillet} />
+          <Skillet skilletList={this.state.skillet} removeFromSkillet={this.removeFromSkillet} />
+          <Cook cook={this.startCooking} cooked={this.state.cooked} />
+          <Dish dishCooked={dishCooked} />
+        </section>
+      </div>
     );
   }
 }

@@ -12,6 +12,14 @@ const config = {
   module: {
     loaders: [
       {
+        test: /\.(gif|jpe?g|png|ico)$/,
+        loader: 'url-loader?limit=10000'
+      },
+      {
+        test: /\.(otf|eot|svg|ttf|woff|woff2).*$/,
+        loader: 'url-loader?limit=10000'
+      },
+      {
         test: /.jsx?$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
@@ -30,12 +38,13 @@ const config = {
           modules: true,
           localIdentName: '[name]__[local]___[hash:base64:5]'
         }
-      }
-      ]
-    },
-    plugins: [new HtmlWebpackPlugin({
-      template: 'src/index.html'
-    })]
-  }
+      },
 
-  module.exports = config;
+    ]
+  },
+  plugins: [new HtmlWebpackPlugin({
+    template: 'src/index.html'
+  })]
+}
+
+module.exports = config;
