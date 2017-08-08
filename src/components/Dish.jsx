@@ -1,19 +1,26 @@
 const React = require('react');
-const PropTypes = require('prop-types')
+const PropTypes = require('prop-types');
 
-class Dish extends React.Component {
-  render() {
-    return (
-      <section id="dish">
-        <h1>{this.props.dishCooked.name}</h1>
-        <p>{this.props.dishCooked.description}</p>
-      </section>
-    )
-  }
-}
+const Dish = props => (
+  <section id="dish">
+    <h1>{props.dishCooked.name}</h1>
+    <p>{props.dishCooked.description}</p>
+  </section>
+);
+
+
+Dish.propTypes = {
+  dishCooked: PropTypes.shape({
+    name: PropTypes.string,
+    description: PropTypes.string,
+  }),
+};
 
 Dish.defaultProps = {
-  dishCooked: ['','']
-}
+  dishCooked: {
+    name: '',
+    description: '',
+  },
+};
 
 module.exports = Dish;

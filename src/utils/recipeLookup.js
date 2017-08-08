@@ -11,7 +11,7 @@ const lookupRecipe = function(cookedIngs) {
     }
   }) : null;
 
-  return dishMade ? dishMade : dishes[0][0];
+  return dishMade ? dishMade : cookedIngs ? dishes[0][0] : dishes[0][1];
 }
 
 module.exports = lookupRecipe;

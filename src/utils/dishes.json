@@ -3,6 +3,10 @@
     {
       "name": "A pile of garbage",
       "description": "What were you thinking man."
+    },
+    {
+      "name": "Heated Air",
+      "description": "Little nutritional value."
     }
   ],
   [
@@ -30,6 +34,11 @@
       "name": "Grilled Veggies",
       "description": "Some healthy veggies cooked over a flame(boosts armor).",
       "ingredients": ["Defensive Cabbage"]
+    },
+    {
+      "name": "Grilled Veggies",
+      "description": "Some starchy veggies cooked over a flame(boosts starch).",
+      "ingredients": ["Plantain"]
     }
 
   ],
@@ -37,7 +46,7 @@
     {
       "name": "Honey Leg",
       "description": "This drumstick has been marinated with a sweet glaze of honey.",
-      "ingredients": ["Raw Birdleg", "Bee's Goo"]
+      "ingredients": ["Raw Birdleg", "Honey of Bee"]
     },
     {
       "name": "Salt Leg",
@@ -48,6 +57,11 @@
       "name": "Salt Fish",
       "description": "Tasty salty fish (boosts stamina).",
       "ingredients": ["Endurance Fish", "Salt"]
+    },
+    {
+      "name": "Plantain Chips",
+      "description": "Crispy chips you can put in your trail mix",
+      "ingredients": ["Plantain", "Salt"]
     }
   ]
 ]
