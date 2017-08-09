@@ -4,8 +4,8 @@ const style = require('../style.css');
 
 const Dish = props => (
   <section id="dish" className={style.component}>
-    <h1>{props.dishCooked.name}</h1>
-    <p>{props.dishCooked.description}</p>
+    <h1 className={style['comp-heading']}>{props.dishCooked.name}</h1>
+    <p style={{paddingLeft: '40px'}>{props.dishCooked.description}</p>
   </section>
 );
 

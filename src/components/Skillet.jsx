@@ -1,5 +1,6 @@
 const React = require('react');
 const style = require('../style.css');
+const Heading = require('./Heading.jsx');
 
 class Skillet extends React.Component {
   skilletLinks() {
@@ -22,6 +23,7 @@ class Skillet extends React.Component {
     const skillItems = this.skilletLinks();
     return (
       <section id="skillet" className={style.component}>
+        <Heading>Bowl</Heading>
         <ul>
           {skillItems}
         </ul>

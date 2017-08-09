@@ -69,7 +69,7 @@ class App extends React.Component {
   }
 
   render() {
-    let dishCooked  = '';
+    let dishCooked  = {};
     this.state.cooked ? dishCooked = this.getCooked() : null;
 
     return (

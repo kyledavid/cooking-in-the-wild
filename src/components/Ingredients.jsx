@@ -1,6 +1,7 @@
 const React = require('react');
 const Ingredient = require('./Ingredient.jsx');
 const style = require('../style.css');
+const Heading = require('./Heading.jsx');
 
 class Ingredients extends React.Component {
   showIngredients() {
@@ -22,6 +23,7 @@ class Ingredients extends React.Component {
     const ingredients = this.showIngredients();
     return (
       <section id='Ingredients' className={style.component}>
+        <Heading>Backpack</Heading>
         <ul>
           {ingredients }
         </ul>
