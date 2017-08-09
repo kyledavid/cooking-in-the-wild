@@ -7,6 +7,8 @@
 
 .comp-heading {
   text-align: center;
+  font-family: sans-serif;
+  font-size: 1.8em;
 }
 
 .cook-comp {
@@ -16,8 +18,13 @@
   padding-bottom: 20px;
 }
 
+.component p {
+  padding-left: 1em;
+}
+
 .component ul {
   list-style-type: none;
+  padding-left: 2em;
 }
 
 .component ul a {
