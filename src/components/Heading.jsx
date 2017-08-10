@@ -3,7 +3,7 @@ const style = require('../style.css');
 
 class Heading extends React.Component {
   render() {
-    return <h1 className={style['comp-heading']}>{this.props.children}</h1>;
+    return <h1 className={style['comp-heading']}><span className={style[this.props.spanClass]}>{this.props.children}</span></h1>;
   }
 }
 

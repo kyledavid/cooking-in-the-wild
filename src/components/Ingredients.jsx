@@ -22,7 +22,7 @@ class Ingredients extends React.Component {
   render() {
     const ingredients = this.showIngredients();
     return (
-      <section id='Ingredients' className={style.component}>
+      <section id='Ingredients' className={`${style.component} ${style.backpack}`}>
         <Heading>Backpack</Heading>
         <ul>
           {ingredients }

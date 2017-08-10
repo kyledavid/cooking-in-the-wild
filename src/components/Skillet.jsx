@@ -3,33 +3,33 @@ const style = require('../style.css');
 const Heading = require('./Heading.jsx');
 
 class Skillet extends React.Component {
-  skilletLinks() {
-    const skillet = this.props.skilletList;
+  bowlLinks() {
+    const bowl = this.props.skilletList;
 
-    if (!skillet) {return};
+    if (!bowl) {return};
 
-    return skillet.map((skillItem)=>{
+    return bowl.map((bowlItem)=>{
       return (
-        <li key={skillItem}>
-          <a href="#" onClick={()=>{this.props.removeFromSkillet(skillItem)}}>
-            {console.log(`skillItem: ${skillItem}`)}
-            {skillItem}
+        <li key={bowlItem}>
+          <a href="#" onClick={()=>{this.props.removeFromSkillet(bowlItem)}}>
+            {console.log(`skillItem: ${bowlItem}`)}
+            {bowlItem}
           </a>
         </li>
       );
     });
   }
   render() {
-    const skillItems = this.skilletLinks();
+    const bowlItems = this.bowlLinks();
     return (
-      <section id="skillet" className={style.component}>
+      <section id="skillet" className={`${style.component} ${style.bowl}`}>
         <Heading>Bowl</Heading>
         <ul>
-          {skillItems}
+          {bowlItems}
         </ul>
       </section>
     )
   }
 }
 
-module.exports = Skillet;
+module.exports = Bowl;

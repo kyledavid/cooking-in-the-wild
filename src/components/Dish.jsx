@@ -1,10 +1,11 @@
 const React = require('react');
 const PropTypes = require('prop-types');
 const style = require('../style.css');
+const Heading = require('./Heading.jsx');
 
 const Dish = props => (
   <section id="dish" className={style.component}>
-    <h1 className={style['comp-heading']}>{props.dishCooked.name}</h1>
+    <Heading spanClass="backdrop">{props.dishCooked.name}</Heading>
     <p style={{paddingLeft: '1em'}}>{props.dishCooked.description}</p>
   </section>
 );
