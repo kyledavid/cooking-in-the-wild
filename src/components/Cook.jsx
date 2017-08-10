@@ -4,7 +4,7 @@ const style = require('../style.css');
 
 class Cook extends React.Component {
   render() {
-    const fire = this.props.cooked ? require('./fire-burning.png') : require('./fire-out.png');
+    const fire = this.props.cooked ? require('../img/fire-burning.png') : require('../img/fire-out.png');
     return (
       <section id='cook' className={`${style.component} ${style['cook-comp']}`}>
         <button

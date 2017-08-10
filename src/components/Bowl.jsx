@@ -2,17 +2,16 @@ const React = require('react');
 const style = require('../style.css');
 const Heading = require('./Heading.jsx');
 
-class Skillet extends React.Component {
+class Bowl extends React.Component {
   bowlLinks() {
-    const bowl = this.props.skilletList;
+    const bowl = this.props.bowlList;
 
     if (!bowl) {return};
 
     return bowl.map((bowlItem)=>{
       return (
         <li key={bowlItem}>
-          <a href="#" onClick={()=>{this.props.removeFromSkillet(bowlItem)}}>
-            {console.log(`skillItem: ${bowlItem}`)}
+          <a href="#" onClick={()=>{this.props.removeFromBowl(bowlItem)}}>
             {bowlItem}
           </a>
         </li>

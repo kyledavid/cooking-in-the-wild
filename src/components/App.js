@@ -1,7 +1,7 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
 const Ingredients = require('./Ingredients.jsx');
-const Skillet = require('./Skillet.jsx');
+const Bowl = require('./Bowl.jsx');
 const Cook = require('./Cook.jsx');
 const Dish = require('./Dish.jsx');
 const ingredientList = require('../utils/ingredients.json');
@@ -14,43 +14,43 @@ class App extends React.Component {
 
     this.state = {
       ingredients: ingredientList,
-      skillet: [],
+      bowl: [],
       cooked: false,
     }
 
-    this.addToSkillet = this.addToSkillet.bind(this);
+    this.addToBowl = this.addToBowl.bind(this);
     this.startCooking = this.startCooking.bind(this);
-    this.removeFromSkillet = this.removeFromSkillet.bind(this);
+    this.removeFromBowl = this.removeFromBowl.bind(this);
   }
 
-  addToSkillet(ingredient) {
+  addToBowl(ingredient) {
     let ingredients = this.state.ingredients.slice();
-    let skillet = this.state.skillet.slice();
+    let bowl = this.state.bowl.slice();
 
-    skillet.push(ingredient);
+    bowl.push(ingredient);
     ingredients = ingredients.filter((currentIngredient)=>{
       return currentIngredient != ingredient;
     });
 
     this.setState({
       ingredients,
-      skillet,
+      bowl,
       cooked: false,
     });
   }
 
-  removeFromSkillet(ingredient) {
+  removeFromBowl(ingredient) {
     let ingredients = this.state.ingredients.slice();
-    let skillet = this.state.skillet.slice();
+    let bowl = this.state.bowl.slice();
 
     ingredients.push(ingredient);
-    skillet = skillet.filter((currentIngredient)=>{
+    bowl = bowl.filter((currentIngredient)=>{
       return currentIngredient != ingredient;
     });
 
     this.setState({
       ingredients,
-      skillet,
+      bowl,
       cooked: false,
     });
   }
@@ -62,7 +62,7 @@ class App extends React.Component {
   }
 
   getCooked() {
-    const ingredients = this.state.skillet;
+    const ingredients = this.state.bowl;
     const dishMade = recipeLookup(ingredients);
 
     return dishMade;
@@ -76,8 +76,8 @@ class App extends React.Component {
       <div>
         <h1 className={style['wild-header']}>Cooking in the Wild</h1>
         <section id='app' className={style['comp-row']}>
-          <Ingredients ingredientList={this.state.ingredients} addToSkillet={this.addToSkillet} />
-          <Skillet skilletList={this.state.skillet} removeFromSkillet={this.removeFromSkillet} />
+          <Ingredients ingredientList={this.state.ingredients} addToSkillet={this.addToBowl} />
+          <Bowl bowlList={this.state.bowl} removeFromBowl={this.removeFromBowl} />
           <Cook cook={this.startCooking} cooked={this.state.cooked} />
           <Dish dishCooked={dishCooked} />
         </section>
