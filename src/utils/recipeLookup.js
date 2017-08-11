@@ -1,6 +1,8 @@
 const dishes = require('./dishes.json');
 const _ = require('lodash');
 
+// change so it just looks to see if recipe .contains each different ingredient
+
 const lookupRecipe = function(cookedIngs) {
   const row = dishes[cookedIngs.length];
   var dishMade;

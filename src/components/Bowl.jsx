@@ -1,5 +1,4 @@
 const React = require('react');
-const style = require('../style.css');
 const Heading = require('./Heading.jsx');
 
 class Bowl extends React.Component {
@@ -21,7 +20,7 @@ class Bowl extends React.Component {
   render() {
     const bowlItems = this.bowlLinks();
     return (
-      <section id="skillet" className={`${style.component} ${style.bowl}`}>
+      <section id="skillet" className="component bowl">
         <Heading>Bowl</Heading>
         <ul>
           {bowlItems}

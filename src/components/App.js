@@ -6,7 +6,8 @@ const Cook = require('./Cook.jsx');
 const Dish = require('./Dish.jsx');
 const ingredientList = require('../utils/ingredients.json');
 const recipeLookup = require('../utils/recipeLookup.js');
-const style = require('../style.css');
+
+// Note, backpack can be a constant and just filter based on the bowl state
 
 class App extends React.Component {
   constructor(props) {
@@ -74,8 +75,8 @@ class App extends React.Component {
 
     return (
       <div>
-        <h1 className={style['wild-header']}>Cooking in the Wild</h1>
-        <section id='app' className={style['comp-row']}>
+        <h1 className="wild-header">Cooking in the Wild</h1>
+        <section id='app' className="comp-row">
           <Ingredients ingredientList={this.state.ingredients} addToSkillet={this.addToBowl} />
           <Bowl bowlList={this.state.bowl} removeFromBowl={this.removeFromBowl} />
           <Cook cook={this.startCooking} cooked={this.state.cooked} />

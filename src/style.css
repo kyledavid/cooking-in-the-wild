@@ -30,6 +30,7 @@
 .component ul {
   list-style-type: none;
   padding-left: 2em;
+  user-select: none;
 }
 
 .component li {
@@ -41,7 +42,7 @@
   position: absolute;
   font-family: FontAwesome;
   top: 2;
-  left: -20px;
+  left: -22px;
 }
 
 .backpack li:hover::before {
