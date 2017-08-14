@@ -5,7 +5,7 @@ const webpack = require('webpack');
 const config = {
   entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, 'heroku'),
+    path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js',
     publicPath: '/',
   },
