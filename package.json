@@ -1,6 +1,9 @@
 {
   "name": "cooking-it-wild",
   "version": "1.0.0",
+  "engines": {
+    "node": "6.11.0"
+  },
   "description": "",
   "main": "index.js",
   "scripts": {
