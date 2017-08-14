@@ -24,7 +24,7 @@ class Ingredients extends React.Component {
       <section id='Ingredients' className="component backpack">
         <Heading>Backpack</Heading>
         <ul>
-          {ingredients }
+          { ingredients }
         </ul>
       </section>
     )
