@@ -1,19 +1,28 @@
-const dishes = require('./dishes.json');
 const _ = require('lodash');
+const firebase = require('./firebase.js')
+
 
 // change so it just looks to see if recipe .contains each different ingredient
 
 const lookupRecipe = function(cookedIngs) {
-  const row = dishes[cookedIngs.length];
-  var dishMade;
+  return firebase.database().ref('recipes').once('value').then(function(snapshot) {
+    const rows = snapshot.val();
+    const row = rows[`${cookedIngs.length || 0}-ingredients`];
 
-  row ? row.forEach((dish)=>{
-    if(!_.difference(dish.ingredients,cookedIngs).length){
-      dishMade = dish;
-    }
-  }) : null;
+    console.log(row);
+    let dishMade;
 
-  return dishMade ? dishMade : cookedIngs ? dishes[0][0] : dishes[0][1];
+    row ? row.forEach((dish)=>{
+      if(!_.difference(dish.ingredients,cookedIngs).length){
+        dishMade = dish;
+      }
+    }) : null;
+
+    return dishMade ? dishMade : cookedIngs ? row[0] : row[1];
+  });
+  /*
+  console.log(dishes);
+  */
 }
 
 module.exports = lookupRecipe;

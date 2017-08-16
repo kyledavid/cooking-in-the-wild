@@ -18,11 +18,13 @@ class App extends React.Component {
       ingredients: ingredientList,
       bowl: [],
       cooked: false,
+      dish: 'poo',
     }
 
     this.addToBowl = this.addToBowl.bind(this);
     this.startCooking = this.startCooking.bind(this);
     this.removeFromBowl = this.removeFromBowl.bind(this);
+    this.getRecipe = this.getRecipe.bind(this);
   }
 
   addToBowl(ingredient) {
@@ -63,11 +65,29 @@ class App extends React.Component {
     });
   }
 
+  getRecipe() {
+    firebase.database().ref('recipes').once('value').then(snapshot => {
+      const rows = snapshot.val();
+      const air = rows[`${this.state.bowl.length || 0}-ingredients`][0];
+
+      console.log(air)
+
+      this.setState({
+        dish: air,
+      });
+    });
+  }
+
   getCooked() {
     const ingredients = this.state.bowl;
     const dishMade = recipeLookup(ingredients);
+    console.log(dishMade);
 
     return dishMade;
+  }
+
+  componentWillMount() {
+    this.getRecipe();
   }
 
   render() {
@@ -77,6 +97,7 @@ class App extends React.Component {
     return (
       <div>
         <h1 className="wild-header">Cooking in the Wild</h1>
+        <h2>{this.state.dish.name}</h2>
         <section id='app' className="comp-row">
           <Ingredients ingredientList={this.state.ingredients} addToSkillet={this.addToBowl} />
           <Bowl bowlList={this.state.bowl} removeFromBowl={this.removeFromBowl} />
