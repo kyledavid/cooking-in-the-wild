@@ -6,6 +6,7 @@ const Cook = require('./Cook.jsx');
 const Dish = require('./Dish.jsx');
 const ingredientList = require('../utils/ingredients.json');
 const recipeLookup = require('../utils/recipeLookup.js');
+const firebase = require('../utils/firebase.js');
 
 // Note, backpack can be a constant and just filter based on the bowl state
 
