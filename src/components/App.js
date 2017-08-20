@@ -9,8 +9,6 @@ const recipeLookup = require('../utils/recipeLookup.js');
 const firebase = require('../utils/firebase.js');
 const _ = require('lodash');
 
-// Note, backpack can be a constant and just filter based on the bowl state
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -18,7 +16,8 @@ class App extends React.Component {
     this.state = {
       bowl: [],
       cooked: false,
-      dish: '',
+      dish: {},
+      dishes: {},
     }
 
     this.addToBowl = this.addToBowl.bind(this);
@@ -34,7 +33,7 @@ class App extends React.Component {
 
     this.setState({
       bowl,
-      dish: '',
+      dish: {},
       cooked: false,
     });
   }
@@ -48,7 +47,7 @@ class App extends React.Component {
 
     this.setState({
       bowl,
-      dish: '',
+      dish: {},
       cooked: false,
     });
   }
@@ -62,14 +61,11 @@ class App extends React.Component {
   getRecipe() {
     const bowl = this.state.bowl;
     const length = bowl.length;
-    console.log(length)
 
     firebase.database().ref('recipes').once('value').then(snapshot => {
-      const allDishes = snapshot.val();
-      const dishesOfLength = allDishes[`${length || 0}-ingredients`];
-      let dish = '';
 
-      console.log(dishesOfLength);
+      const dishesOfLength = this.state.allDishes[`${length || 0}-ingredients`];
+      let dish = '';
 
       dishesOfLength ? dishesOfLength.forEach(possibleDish => {
         if(!_.difference(bowl, possibleDish.ingredients).length) {
@@ -79,7 +75,7 @@ class App extends React.Component {
 
       this.setState({
         cooked: true,
-        dish: dish ? dish : allDishes.garbage,
+        dish: dish ? dish : this.state.allDishes.garbage,
       });
 
     });
@@ -88,12 +84,21 @@ class App extends React.Component {
   getCooked() {
     const ingredients = this.state.bowl;
     const dishMade = recipeLookup(ingredients);
-    console.log(dishMade);
 
     return dishMade;
   }
 
+  componentWillMount() {
+    firebase.database().ref('recipes').once('value').then(snapshot => {
+      const allDishes = snapshot.val();
+      this.setState({
+        allDishes
+      });
+    });
+  }
+
   render() {
+
     return (
       <div>
         <h1 className="wild-header">Cooking in the Wild</h1>
