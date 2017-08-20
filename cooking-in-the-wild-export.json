@@ -4,10 +4,6 @@
       {
         "name": "Heated Air",
         "desc": "Little nutritional value"
-      },
-      {
-        "name": "A pile of garbage",
-        "desc": "What were you thinking man."
       }
     ],
     "1-ingredients": [
@@ -15,54 +11,58 @@
       "name": "Grilled Leg",
       "description": "A drumstick cooked over a flame.",
       "ingredients": ["Raw Birdleg"]
-    },
-    {
-      "name": "Grilled Fish",
-      "description": "A robust fish cooked over a flame (boosts stamina).",
-      "ingredients": ["Endurance Fish"]
-    },
-    {
-      "name": "Grilled Veggies",
-      "description": "Some healthy veggies cooked over a flame (boosts hearts).",
-      "ingredients": ["Healthy Radish"]
-    },
-    {
-      "name": "Grilled Veggies",
-      "description": "Some healthy veggies cooked over a flame (boosts run speed).",
-      "ingredients": ["Fast Carrot"]
-    },
-    {
-      "name": "Grilled Veggies",
-      "description": "Some healthy veggies cooked over a flame(boosts armor).",
-      "ingredients": ["Defensive Cabbage"]
-    },
-    {
-      "name": "Grilled Veggies",
-      "description": "Some starchy veggies cooked over a flame(boosts starch).",
-      "ingredients": ["Plantain"]
+      },
+      {
+        "name": "Grilled Fish",
+        "description": "A robust fish cooked over a flame (boosts stamina).",
+        "ingredients": ["Endurance Fish"]
+      },
+      {
+        "name": "Grilled Veggies",
+        "description": "Some healthy veggies cooked over a flame (boosts hearts).",
+        "ingredients": ["Healthy Radish"]
+      },
+      {
+        "name": "Grilled Veggies",
+        "description": "Some healthy veggies cooked over a flame (boosts run speed).",
+        "ingredients": ["Fast Carrot"]
+      },
+      {
+        "name": "Grilled Veggies",
+        "description": "Some healthy veggies cooked over a flame(boosts armor).",
+        "ingredients": ["Defensive Cabbage"]
+      },
+      {
+        "name": "Grilled Veggies",
+        "description": "Some starchy veggies cooked over a flame(boosts starch).",
+        "ingredients": ["Plantain"]
+      }
+    ],
+    "2-ingredients": [
+      {
+        "name": "Honey Leg",
+        "description": "This drumstick has been marinated with a sweet glaze of honey.",
+        "ingredients": ["Raw Birdleg", "Honey of Bee"]
+      },
+      {
+        "name": "Salt Leg",
+        "description": "A drumstick seasoned with salt.",
+        "ingredients": ["Raw Birdleg", "Salt"]
+      },
+      {
+        "name": "Salt Fish",
+        "description": "Tasty salty fish (boosts stamina).",
+        "ingredients": ["Endurance Fish", "Salt"]
+      },
+      {
+        "name": "Plantain Chips",
+        "description": "Crispy chips you can put in your trail mix",
+        "ingredients": ["Plantain", "Salt"]
+      }
+    ],
+    "garbage": {
+      "name": "A pile of garbage",
+      "description" : "What were you thinking man."
     }
-  ],
-  "2-ingredients": [
-    {
-      "name": "Honey Leg",
-      "description": "This drumstick has been marinated with a sweet glaze of honey.",
-      "ingredients": ["Raw Birdleg", "Honey of Bee"]
-    },
-    {
-      "name": "Salt Leg",
-      "description": "A drumstick seasoned with salt.",
-      "ingredients": ["Raw Birdleg", "Salt"]
-    },
-    {
-      "name": "Salt Fish",
-      "description": "Tasty salty fish (boosts stamina).",
-      "ingredients": ["Endurance Fish", "Salt"]
-    },
-    {
-      "name": "Plantain Chips",
-      "description": "Crispy chips you can put in your trail mix",
-      "ingredients": ["Plantain", "Salt"]
-    }
-  ]
   }
 }

@@ -19,7 +19,7 @@ class App extends React.Component {
       ingredients: ingredientList,
       bowl: [],
       cooked: false,
-      dish: 'poo',
+      dish: '',
     }
 
     this.addToBowl = this.addToBowl.bind(this);
@@ -40,6 +40,7 @@ class App extends React.Component {
     this.setState({
       ingredients,
       bowl,
+      dish: '',
       cooked: false,
     });
   }
@@ -56,6 +57,7 @@ class App extends React.Component {
     this.setState({
       ingredients,
       bowl,
+      dish: '',
       cooked: false,
     });
   }
@@ -84,7 +86,10 @@ class App extends React.Component {
         }
       }) : null;
 
-      console.log(dish);
+      this.setState({
+        cooked: true,
+        dish: dish ? dish : allDishes.garbage,
+      });
 
     });
   }
@@ -97,22 +102,16 @@ class App extends React.Component {
     return dishMade;
   }
 
-  componentWillMount() {
-    this.getRecipe();
-  }
-
   render() {
-
-
     return (
       <div>
         <h1 className="wild-header">Cooking in the Wild</h1>
-        <h2>{this.state.dish.name}</h2>
+
         <section id='app' className="comp-row">
           <Ingredients ingredientList={this.state.ingredients} addToSkillet={this.addToBowl} />
           <Bowl bowlList={this.state.bowl} removeFromBowl={this.removeFromBowl} />
           <Cook cook={this.getRecipe} cooked={this.state.cooked} />
-          <Dish />
+          <Dish dishCooked={this.state.dish} />
         </section>
       </div>
     );
