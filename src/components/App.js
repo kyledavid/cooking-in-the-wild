@@ -16,7 +16,6 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      ingredients: ingredientList,
       bowl: [],
       cooked: false,
       dish: '',
@@ -29,16 +28,11 @@ class App extends React.Component {
   }
 
   addToBowl(ingredient) {
-    let ingredients = this.state.ingredients.slice();
     let bowl = this.state.bowl.slice();
 
     bowl.push(ingredient);
-    ingredients = ingredients.filter((currentIngredient)=>{
-      return currentIngredient != ingredient;
-    });
 
     this.setState({
-      ingredients,
       bowl,
       dish: '',
       cooked: false,
@@ -46,16 +40,13 @@ class App extends React.Component {
   }
 
   removeFromBowl(ingredient) {
-    let ingredients = this.state.ingredients.slice();
     let bowl = this.state.bowl.slice();
 
-    ingredients.push(ingredient);
     bowl = bowl.filter((currentIngredient)=>{
       return currentIngredient != ingredient;
     });
 
     this.setState({
-      ingredients,
       bowl,
       dish: '',
       cooked: false,
@@ -108,7 +99,7 @@ class App extends React.Component {
         <h1 className="wild-header">Cooking in the Wild</h1>
 
         <section id='app' className="comp-row">
-          <Ingredients ingredientList={this.state.ingredients} addToSkillet={this.addToBowl} />
+          <Ingredients ingredientList={ingredientList} bowlList={this.state.bowl} addToSkillet={this.addToBowl} />
           <Bowl bowlList={this.state.bowl} removeFromBowl={this.removeFromBowl} />
           <Cook cook={this.getRecipe} cooked={this.state.cooked} />
           <Dish dishCooked={this.state.dish} />

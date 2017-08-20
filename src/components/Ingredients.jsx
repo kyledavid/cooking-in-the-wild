@@ -4,7 +4,14 @@ const Heading = require('./Heading.jsx');
 
 class Ingredients extends React.Component {
   showIngredients() {
-    const ingredients = this.props.ingredientList;
+    let ingredients = this.props.ingredientList;
+
+    if(this.props.bowlList.length) {
+      ingredients = ingredients.filter((ingredient) => {
+        return !this.props.bowlList.includes(ingredient);
+      });
+    }
+
 
     if (!ingredients) {return;}
 
