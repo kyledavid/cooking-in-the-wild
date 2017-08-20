@@ -7,6 +7,7 @@ const Dish = require('./Dish.jsx');
 const ingredientList = require('../utils/ingredients.json');
 const recipeLookup = require('../utils/recipeLookup.js');
 const firebase = require('../utils/firebase.js');
+const _ = require('lodash');
 
 // Note, backpack can be a constant and just filter based on the bowl state
 
@@ -66,15 +67,25 @@ class App extends React.Component {
   }
 
   getRecipe() {
+    const bowl = this.state.bowl;
+    const length = bowl.length;
+    console.log(length)
+
     firebase.database().ref('recipes').once('value').then(snapshot => {
-      const rows = snapshot.val();
-      const air = rows[`${this.state.bowl.length || 0}-ingredients`][0];
+      const allDishes = snapshot.val();
+      const dishesOfLength = allDishes[`${length || 0}-ingredients`];
+      let dish = '';
 
-      console.log(air)
+      console.log(dishesOfLength);
 
-      this.setState({
-        dish: air,
-      });
+      dishesOfLength ? dishesOfLength.forEach(possibleDish => {
+        if(!_.difference(bowl, possibleDish.ingredients).length) {
+          dish = possibleDish;
+        }
+      }) : null;
+
+      console.log(dish);
+
     });
   }
 
@@ -91,8 +102,7 @@ class App extends React.Component {
   }
 
   render() {
-    let dishCooked  = {};
-    this.state.cooked ? dishCooked = this.getCooked() : null;
+
 
     return (
       <div>
@@ -101,8 +111,8 @@ class App extends React.Component {
         <section id='app' className="comp-row">
           <Ingredients ingredientList={this.state.ingredients} addToSkillet={this.addToBowl} />
           <Bowl bowlList={this.state.bowl} removeFromBowl={this.removeFromBowl} />
-          <Cook cook={this.startCooking} cooked={this.state.cooked} />
-          <Dish dishCooked={dishCooked} />
+          <Cook cook={this.getRecipe} cooked={this.state.cooked} />
+          <Dish />
         </section>
       </div>
     );
