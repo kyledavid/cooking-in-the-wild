@@ -60,14 +60,14 @@ class App extends React.Component {
 
   getRecipe() {
     const bowl = this.state.bowl;
-    const length = bowl.length;
+    var length = bowl.length;
 
     firebase.database().ref('recipes').once('value').then(snapshot => {
 
       const dishesOfLength = this.state.allDishes[`${length || 0}-ingredients`];
       let dish = '';
 
-      dishesOfLength ? dishesOfLength.forEach(possibleDish => {
+      dishesOfLength ? dishesOfLength.forEach((possibleDish) => {
         if(!_.difference(bowl, possibleDish.ingredients).length) {
           dish = possibleDish;
         }
